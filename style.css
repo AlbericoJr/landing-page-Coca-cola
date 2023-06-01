@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --background: #1E1E1E;
+  --color: white;
+  --background-red: #F40009;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+}
+
+/*mode dark*/
+.theme {
+  color: var(--color);
+  margin: 0;
+  text-align: center;
+}
+
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.ph-sun {
+  font-size: 2.3rem;
+  cursor: pointer;
+}
+
+.ph-moon-stars {
+  display: none;
+  font-size: 2.3rem;
+}
+
+.dark,
+.dark header {
+  background-color: var(--color);
+  color: var(--background);
+}
+
+.dark .ph-sun {
+  display: none;
+}
+
+.dark .ph-moon-stars {
+  display: block;
+  color: var(--background);
+}
+
+.dark #header {
+  background-color: var(--color);
+}
+
+.dark .ico .ph-fill {
+  color: var(--background);
+}
+
+.dark #menu a {
+  color: var(--background);
+}
+
+.dark #nav {
+  color: var(--color);
+}
+
+.dark .conteudo {
+  color: var(--background);
+}
+
+/*Menu*/
+a {
+  color: var(--color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#nav a:hover {
+  background: var(--background-red);
+}
+
+#header {
+  height: 70px;
+  padding: 1rem;
+  display: flex;
+  margin: 0 2rem 0 2rem;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--background);
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+  font-size: 2rem;
+  gap: .5rem;
+}
+
+#menu a {
+  display: block;
+  padding: .5rem;
+}
+
+#btn-mobile {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+
+}
+
+/*Main*/
+.container {
+  margin: auto;
+  padding: 2.4rem 5.6rem;
+
+  border-radius: 4.0rem;
+
+  max-width: 80.0rem;
+  max-height: 50rem;
+}
+
+.img-coca {
+  margin: auto;
+  max-width: 20.0rem;
+
+  position: relative;
+  top: -12rem;
+
+}
+
+/*Conteudo*/
+.conteudo {
+  color: var(--color);
+  width: 81rem;
+  padding-left: 45rem;
+
+  position: relative;
+
+  top: -28rem;
+}
+
+.conteudo h1 {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 3.9rem;
+  padding: 1rem;
+
+  text-align: center;
+}
+
+.conteudo span {
+  background-color: var(--background-red);
+}
+
+.conteudo h2 {
+  font-weight: 600;
+  font-size: 2.7rem;
+  text-align: left;
+  line-height: 4rem;
+}
+
+.conteudo p {
+  font-size: 1.6rem;
+}
+
+/*Icons*/
+.ico {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  font-size: 2.9rem;
+}
+
+.ico a:hover {
+  background: var(--background-red);
+}
+
+/*Mobile*/
+@media (max-width: 600px) {
+
+  /*Menu Mobile*/
+  #menu {
+    display: block;
+    position: absolute;
+    width: 40%;
+    top: 70px;
+    right: 0;
+    background: var(--background);
+    transition: .6s;
+    z-index: 1000;
+    height: 0px;
+    visibility: hidden;
+    overflow-y: hidden;
+
+    text-align: center;
+    justify-content: center;
+  }
+
+  .dark #nav.active #menu {
+    background-color: var(--color);
+  }
+
+  #nav.active #menu {
+    height: calc(70vh - 70px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+
+  #menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid var(--background-red);
+  }
+
+  #btn-mobile {
+    display: flex;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: .5rem;
+  }
+
+  .dark #btn-mobile {
+    background-color: var(--background);
+  }
+
+  #hamburger {
+    border-top: 2px solid var(--color);
+    width: 20px;
+  }
+
+
+  #hamburger::after,
+  #hamburger::before {
+    content: '';
+    display: block;
+
+    width: 20px;
+    height: 2px;
+    background-color: var(--color);
+    margin-top: 5px;
+
+    transition: .3s;
+    position: relative;
+  }
+
+  #nav.active #hamburger {
+    border-top-color: transparent;
+  }
+
+  #nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+
+  .img-coca {
+    max-width: 13rem;
+    position: relative;
+    top: -5rem;
+    padding-bottom: 5rem;
+
+  }
+
+  /*Conteudo*/
+  .conteudo {
+    width: 27rem;
+    padding-left: 0rem;
+    padding-top: 19rem;
+  }
+
+  .conteudo h1 {
+    font-size: 2.9rem;
+  }
+
+  .conteudo h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .conteudo p {
+    font-size: 1.2rem;
+  }
+
+  /*icone*/
+  .ico {
+    font-size: 2rem;
+  }
+}
